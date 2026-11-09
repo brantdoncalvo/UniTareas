@@ -1,16 +1,66 @@
-# React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# UniTareas
 
-Currently, two official plugins are available:
+## Descripción del proyecto
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+UniTareas es una aplicación web desarrollada para ayudar a los estudiantes a registrar, organizar y consultar sus actividades académicas. Permite administrar tareas, fechas de entrega, prioridades y estados de cumplimiento.
 
-## React Compiler
+## Tecnologías utilizadas
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- React
+- Vite
+- JavaScript
+- HTML5
+- CSS3
+- Bootstrap 5
+- Git y GitHub
 
-## Expanding the ESLint configuration
+## API REST externa utilizada
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+El proyecto utiliza la API pública **Nager.Date**, que proporciona información sobre los días festivos de diferentes países.
+
+### ¿Para qué se utiliza?
+
+Se utiliza para consultar los días festivos de Colombia y mostrarlos en la sección "Días festivos de Colombia" de UniTareas.
+
+### Endpoint utilizado
+
+https://date.nager.at/api/v3/PublicHolidays/{año}/CO
+
+El año se obtiene automáticamente mediante JavaScript y el código `CO` identifica a Colombia.
+
+### Método de consulta
+
+Se utiliza el método HTTP GET mediante la Fetch API de JavaScript para obtener los datos en formato JSON.
+
+### Autenticación
+
+La consulta pública utilizada no requiere una clave API ni autenticación.
+
+### Manejo de respuestas
+
+La aplicación contempla los siguientes estados:
+
+- Carga: informa al usuario mientras se consultan los días festivos.
+- Éxito: muestra la lista de días festivos obtenidos.
+- Error: presenta un mensaje cuando no es posible completar la consulta.
+
+## Instalación y ejecución
+
+1. Clonar el repositorio.
+2. Instalar las dependencias:
+
+```bash
+npm install
+```
+
+3. Ejecutar el proyecto:
+
+```bash
+npm run dev
+```
+
+## Autor
+
+Proyecto académico desarrollado individualmente.
+
