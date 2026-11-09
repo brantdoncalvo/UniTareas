@@ -1,0 +1,24 @@
+
+function Feedback({ message, type = 'success', onClose }) {
+  if (!message) {
+    return null
+  }
+
+  return (
+    <div
+      className={`alert alert-${type} alert-dismissible fade show`}
+      role="alert"
+    >
+      {message}
+
+      <button
+        type="button"
+        className="btn-close"
+        aria-label="Cerrar mensaje"
+        onClick={onClose}
+      ></button>
+    </div>
+  )
+}
+
+export default Feedback
