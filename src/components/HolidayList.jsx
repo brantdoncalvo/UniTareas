@@ -52,20 +52,31 @@ function HolidayList() {
           </div>
         )}
 
-        {!loading && !error && (
-          <ul className="list-group">
+        {!loading && !error && holidays.length > 0 && (
+          <div className="list-group">
             {holidays.map((holiday) => (
-              <li
+              <div
                 key={holiday.date}
-                className="list-group-item d-flex justify-content-between flex-wrap gap-2"
+                className="list-group-item d-flex justify-content-between align-items-center flex-wrap gap-2 py-3"
               >
-                <span>{holiday.localName}</span>
-                <span className="text-secondary">
-                  {holiday.date}
+                <span className="fw-medium">
+                  {holiday.localName}
                 </span>
-              </li>
+
+                <span className="badge bg-light text-dark border">
+                  {new Date(
+                    `${holiday.date}T00:00:00`
+                  ).toLocaleDateString('es-CO')}
+                </span>
+              </div>
             ))}
-          </ul>
+          </div>
+        )}
+
+        {!loading && !error && holidays.length === 0 && (
+          <p className="text-secondary mb-0">
+            No se encontraron días festivos para este año.
+          </p>
         )}
       </div>
     </section>
